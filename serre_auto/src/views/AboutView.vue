@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <ContainerBox>
-      <h1>This is an about page</h1>
+      <h2>This is an about page</h2>
     </ContainerBox>
   </div>
 </template>

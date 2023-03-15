@@ -1,32 +1,46 @@
 <template>
   <div class="home">
     <ContainerBox>
-      <img alt="Vue logo" src="../assets/logo.png">
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <h2>Bienvenue sur l'espace de gestion de la serre</h2>   
+      <img id="logo_serre" alt="Vue logo" src="../assets/logo.png">
     </ContainerBox>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 import ContainerBox from '@/components/ContainerBox.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld,
     ContainerBox
   }
 }
 </script>
 
-<style>
+<style scoped>
   .home{
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 80%;
+  }
+
+  #logo_serre{
+    width: 96px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 920px) {
+    #logo_serre{
+      width: 64px;
     }
+  }
+  @media (max-width: 460px) {
+    #logo_serre{
+      display: none;
+    }
+  }
 </style>

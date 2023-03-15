@@ -21,4 +21,13 @@ export default{
     box-sizing: border-box;
     background-color: rgb(220, 255, 163);
 }
+
+.nav_bar nav{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 8px;
+}
 </style>

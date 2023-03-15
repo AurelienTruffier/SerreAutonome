@@ -1,7 +1,7 @@
 <template>
   <NavBar>
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Accueil</router-link>
+    <router-link to="/about">Utilisation</router-link>
   </NavBar>
   <main>
     <router-view/>
@@ -33,21 +33,55 @@ main{
   height: calc(100vh - 64px);
 }
 
-nav {
-  padding: 8px;
+h2{
+    font-size: 2.1rem;
+    color: #273616;
 }
 
+/* BARRE DE NAVIGATION  */
 nav a {
   margin: 0 32px;
   font-size: 2.2rem;
   font-weight: bold;
   text-decoration: none;
-  color: #4ab435;
+  color: #327F22;
 }
 
 nav a.router-link-exact-active {
-  color: #3b660a;
+  color: #2b4b07;
   text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 920px) {
+  h2{
+    font-size: 1.9rem;
+  }
+  /* BARRE DE NAVIGATION */
+  nav a{
+    margin: 0 16px;
+    font-size: 1.9rem;
+  }
+}
+@media (max-width: 460px) {
+  h2{
+    font-size: 1.6rem;
+  }
+  /* BARRE DE NAVIGATION */
+  nav a{
+    margin: 0 16px;
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 360px) {
+  h2{
+    font-size: 1.3rem;
+  }
+  /* BARRE DE NAVIGATION */
+  nav a{
+    margin: 0 12px;
+    font-size: 1.3rem;
+  }
 }
 
 </style>
