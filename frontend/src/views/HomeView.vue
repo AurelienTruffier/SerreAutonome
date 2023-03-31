@@ -2,7 +2,7 @@
   <div class="home">
     <ContainerBox>
       <div v-if="$store.state.userIsConnected">
-        <h2>Bienvenue sur l'espace de gestion de la serre</h2>   
+        <h2>Bienvenue sur l'espace de gestion de la serre, {{ $store.state.login }}.</h2>   
         <img id="logo_serre" alt="Vue logo" src="../assets/logo.png">
       </div>
       <div class ="connection_form" v-else>
@@ -17,6 +17,17 @@
 // @ is an alias to /src
 import ContainerBox from '@/components/ContainerBox.vue';
 import ConnectionForm from '@/components/ConnectionForm.vue';
+
+import store from '../store';
+
+//requête AJAX vers la route /username de notre serveur pour récupèrer son Identifiant
+fetch('http://localhost:3000/username')
+//transforme le résultat en JSON
+.then(response => response.json())
+//enregistre la valeur retournée dans le store vuex
+.then(response => store.state.login = response)
+//en cas d'erreur on l'affiche dans une alerte du navigateur
+.catch(error => alert(error));
 
 export default {
   name: 'HomeView',

@@ -89,6 +89,8 @@ nav a.router-link-exact-active {
 <script>
   import NavBar from '@/components/NavBar.vue'
 
+  document.title = 'Gestion de la serre';
+
   export default {
   name: 'App',
   components: {
