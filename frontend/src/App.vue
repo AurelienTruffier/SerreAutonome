@@ -2,11 +2,25 @@
   <NavBar>
     <router-link to="/">Accueil</router-link>
     <router-link to="/about">Utilisation</router-link>
+    <router-link to="/private" v-if="$store.state.userIsConnected">Privée</router-link>
   </NavBar>
   <main>
     <router-view/>
   </main>
 </template>
+
+<script>
+  import NavBar from '@/components/NavBar.vue'
+
+  document.title = 'Gestion de la serre';
+
+  export default {
+  name: 'App',
+  components: {
+    NavBar
+  }
+}
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
@@ -85,17 +99,3 @@ nav a.router-link-exact-active {
 }
 
 </style>
-
-<script>
-  import NavBar from '@/components/NavBar.vue'
-
-  document.title = 'Gestion de la serre';
-
-  export default {
-  name: 'App',
-  components: {
-    NavBar
-  }
-}
-
-</script>

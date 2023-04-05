@@ -28,21 +28,6 @@ app.use((req, res, next) => {
     next();
 });
 
-//récupère l'username du premier utilisateur (test)
-app.get('/username', (req, res) => {
-    const sql = 'SELECT Identifiant FROM User';
-    connection.query(sql, (error, results, fields) => {
-        if(error){
-            console.error('Erreur lors de la récupération des données :', error);
-            res.status(500).end();
-            return;
-        }
-        res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.status(200).end(JSON.stringify(results[0].Identifiant));
-    });
-});
-
 //pour envoyer les identifiants de connexion au serveur
 app.post('/connection', (req, res) => {
     //récupère les identifiants dans la requête

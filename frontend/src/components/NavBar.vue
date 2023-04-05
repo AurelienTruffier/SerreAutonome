@@ -4,13 +4,19 @@
             <slot>
                 
             </slot>
+            <DisconnectionButton v-if="$store.state.userIsConnected"></DisconnectionButton>
         </nav>
     </div>
 </template>
 
 <script>
+import DisconnectionButton from '@/components/DisconnectionButton.vue';
+
 export default{
-    name: 'NavBar'
+    name: 'NavBar',
+    components: {
+        DisconnectionButton
+    }
 }
 </script>
 

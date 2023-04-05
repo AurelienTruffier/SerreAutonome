@@ -2,12 +2,8 @@
   <div class="home">
     <ContainerBox>
       <div v-if="$store.state.userIsConnected">
-        <h2>Bienvenue sur l'espace de gestion de la serre, {{ $store.state.login }}.</h2>   
+        <h2>Bienvenue sur l'espace de gestion de la serre, {{ $store.state.username }}. 🌱</h2>
         <img id="logo_serre" alt="Vue logo" src="../assets/logo.png">
-      </div>
-      <div class ="connection_form" v-else>
-        <h2>Connectez-vous !</h2>
-        <ConnectionForm></ConnectionForm>
       </div>
     </ContainerBox>
   </div>
@@ -16,24 +12,18 @@
 <script>
 // @ is an alias to /src
 import ContainerBox from '@/components/ContainerBox.vue';
-import ConnectionForm from '@/components/ConnectionForm.vue';
-
-import store from '../store';
-
-//requête AJAX vers la route /username de notre serveur pour récupèrer son Identifiant
-fetch('http://localhost:3000/username')
-//transforme le résultat en JSON
-.then(response => response.json())
-//enregistre la valeur retournée dans le store vuex
-.then(response => store.state.login = response)
-//en cas d'erreur on l'affiche dans une alerte du navigateur
-.catch(error => alert(error));
 
 export default {
   name: 'HomeView',
+  mounted() {
+    //si l'utilisateur n'est pas connecté
+    if(!this.$store.state.userIsConnected){
+      //redirige l'utilisateur vers la page de connexion
+      this.$router.push('/login');
+    }
+  },
   components: {
-    ContainerBox,
-    ConnectionForm
+    ContainerBox
   }
 }
 </script>
@@ -49,15 +39,6 @@ export default {
 
   #logo_serre{
     width: 96px;
-  }
-
-  /* FORMULAIRE DE CONNEXION */
-  .connection_form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 85%;
   }
 
   /* RESPONSIVE */

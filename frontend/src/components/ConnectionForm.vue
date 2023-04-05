@@ -12,6 +12,7 @@
 </template>
 
 <script>
+//import store from '../store';
 export default{
     name: 'ConnectionForm',
     data() {
@@ -52,15 +53,19 @@ export default{
                     }
                 })
                 .then((data) => {
+                    this.$store.dispatch('connection', username);
+                    //retour à la page d'accueil
+                    this.$router.push('/');
                     console.log(data);
+
                 })
                 .catch((error) => {
                     console.error(error);
                 });
             }
             else{
-                //on affiche 'erreur' dans la console si les deux champs ne sont pas complétés
-                console.log('erreur');
+                //si les deux champs ne sont pas complétés
+                console.log('Les 2 champs ne sont pas complétés');
             }
         }
     }
@@ -96,7 +101,7 @@ export default{
 .connection_form form input[type=submit]{
     box-sizing: content-box;
     background-color: #327F22;
-    animation: 5s linear infinite;
+    cursor: pointer;
     color: white;
     line-height: 32px;
     padding: 16px;
