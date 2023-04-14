@@ -13,8 +13,9 @@ export default {
 <style scoped>
     .disconnection_button button{
         box-sizing: content-box;
-        width: 110px;
-        height: 20px;
+        width: 120px;
+        height: 25px;
+        font-size: 0.95rem;
         font-family: 'Merriweather', serif;
         background-color: #327F22;
         cursor: pointer;
@@ -27,5 +28,12 @@ export default {
     }
     .disconnection_button button:hover{
         width: 124px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 920px) {
+        .disconnection_button button{
+            width: 115px;
+        }
     }
 </style>

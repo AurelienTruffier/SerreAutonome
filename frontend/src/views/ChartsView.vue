@@ -1,5 +1,5 @@
 <template>
-  <div class="private">
+  <div class="charts">
     <ContainerBox>
       <h2>Ceci est une page privée {{ $store.state.username }}.</h2>
     </ContainerBox>
@@ -10,7 +10,7 @@
 import ContainerBox from '@/components/ContainerBox.vue';
 
 export default{
-    name: 'PrivateView',
+    name: 'ChartsView',
     components: {
         ContainerBox
     }
@@ -18,7 +18,7 @@ export default{
 </script>
 
 <style scoped>
-  .private{
+  .charts{
     display: flex;
     justify-content: center;
     align-items: center;

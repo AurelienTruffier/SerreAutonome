@@ -128,5 +128,5 @@ export default{
         width: 250px;
         margin: 8px 0;
     }
-  }
+}
 </style>

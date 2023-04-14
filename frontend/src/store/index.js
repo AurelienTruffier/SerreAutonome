@@ -4,7 +4,7 @@ import router from '@/router'
 
 export default createStore({
   state: {
-    userIsConnected: false,
+    userIsConnected: true,
     username: null
   },
   getters: {
@@ -31,5 +31,6 @@ export default createStore({
     }
   },
   modules: {
+    
   }
 })

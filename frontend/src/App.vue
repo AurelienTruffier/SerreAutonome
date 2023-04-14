@@ -2,7 +2,6 @@
   <NavBar>
     <router-link to="/">Accueil</router-link>
     <router-link to="/about">Utilisation</router-link>
-    <router-link to="/private" v-if="$store.state.userIsConnected">Privée</router-link>
   </NavBar>
   <main>
     <router-view/>
@@ -47,11 +46,6 @@ main{
   height: calc(100vh - 64px);
 }
 
-h2{
-    font-size: 2.1rem;
-    color: #273616;
-}
-
 /* BARRE DE NAVIGATION  */
 nav a {
   margin: 0 32px;
@@ -68,9 +62,6 @@ nav a.router-link-exact-active {
 
 /* RESPONSIVE */
 @media (max-width: 920px) {
-  h2{
-    font-size: 1.9rem;
-  }
   /* BARRE DE NAVIGATION */
   nav a{
     margin: 0 16px;
@@ -78,23 +69,17 @@ nav a.router-link-exact-active {
   }
 }
 @media (max-width: 460px) {
-  h2{
-    font-size: 1.6rem;
-  }
   /* BARRE DE NAVIGATION */
   nav a{
     margin: 0 16px;
-    font-size: 1.8rem;
+    font-size: 1.25rem;
   }
 }
 @media (max-width: 360px) {
-  h2{
-    font-size: 1.3rem;
-  }
   /* BARRE DE NAVIGATION */
   nav a{
-    margin: 0 12px;
-    font-size: 1.3rem;
+    margin: 0 8px;
+    font-size: 1rem;
   }
 }
 
