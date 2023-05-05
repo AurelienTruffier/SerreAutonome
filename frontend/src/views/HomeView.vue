@@ -49,6 +49,7 @@ export default {
 
   #main_container{
     display: flex;
+    flex-direction: column;
     height: 100%;
   }
 
@@ -61,6 +62,7 @@ export default {
   h2{
     font-size: 2.1rem;
     color: #273616;
+    margin: 8px;
   }
 
   #logo_serre{

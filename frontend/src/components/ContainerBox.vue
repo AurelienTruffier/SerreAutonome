@@ -18,6 +18,6 @@ export default{
     border-radius: 6px;
     background-color: rgba(220, 255, 163, 0.75);
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 </style>
