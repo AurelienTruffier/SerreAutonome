@@ -1,6 +1,6 @@
 <template>
     <div class="chart_button">
-        <button @click="alert()">{{ title }}</button>
+        <button>{{ title }}</button>
     </div>
 </template>
 
@@ -38,6 +38,12 @@ export default {
     @media (max-width: 920px) {
         .chart_button button{
             width: 115px;
+        }
+    }
+    @media (max-width: 700px) {
+        .chart_button button{
+            width: 90px;
+            font-size: 0.8rem;
         }
     }
 </style>

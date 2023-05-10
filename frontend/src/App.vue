@@ -25,7 +25,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 #app {
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   background-image: url('assets/markus-spiske-bk11wZwb9F4-unsplash.jpg');
   background-size: cover;
   background-position: top;
@@ -43,7 +44,8 @@ main{
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
+  height: calc(auto - 64px);
 }
 
 /* BARRE DE NAVIGATION  */

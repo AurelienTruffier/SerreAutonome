@@ -42,9 +42,11 @@ export default {
     }
 
     /* RESPONSIVE */
-    @media (max-width: 920px) {
+    @media (max-width: 700px) {
         .chart_buttons_container{
-            
+            width: 320px;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
     }
 </style>

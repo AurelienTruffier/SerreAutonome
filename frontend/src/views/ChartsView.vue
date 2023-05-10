@@ -53,8 +53,16 @@ export default{
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding-top: 8px;
+  }
+
+  @media (max-width: 700px){
+    .charts #main_container{
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
   }
 </style>

@@ -2,7 +2,7 @@
     <div id="temperature_chart">
         <highcharts v-if="dataFetched" :options="chartOptions"></highcharts>
         <div id="input_container">
-            <select name="select_max_values" id="select_max_values">
+            <select name="select_max_values" id="select_max_values" ref="input">
                 <option value="3">30 dernières minutes</option>
                 <option value="6">60 dernières minutes</option>
                 <option value="9">90 dernières minutes</option>
@@ -10,7 +10,7 @@
                 <option value="18">180 dernières minutes</option>
                 <option value="24">240 dernières minutes</option>
             </select>
-            <button id="update_btn" role="button">Rafraîchir le graphique</button>
+            <button id="update_btn" role="button" @click="FetchData">Rafraîchir le graphique</button>
         </div>
     </div>
 </template>
@@ -24,13 +24,20 @@ export default{
         highcharts: Chart 
     },
     mounted(){
-        //on va récupérer les données dès l'apparition du composant
-        this.FetchData();
+        //génère les dimensions du graph et va fetch les données
+        this.ResizeChart();
+        window.addEventListener('resize', this.ResizeChart);
+    },
+    unmounted(){
+        window.removeEventListener('resize', this.ResizeChart);
     },
     data(){
         return{
+            chartWidth: 600,
+            chartHeight: 360,
             dates: [],
             values: [],
+            maxNumberValues: 0,
             dataFetched: true
         }
     },
@@ -38,8 +45,8 @@ export default{
         chartOptions(){
             return{
                 chart:{
-                    width: 600,
-                    height: 360
+                    width: this.chartWidth,
+                    height: this.chartHeight
                 },
                 title: {
                     text: 'Température de la serre'
@@ -65,8 +72,12 @@ export default{
         }
     },
     methods:{
+        UpdateMaxNumberValues(){
+            this.maxNumberValues = parseInt(this.$refs.input.value, 10);
+            this.dataFetched = false;
+        },
         FetchData(){
-            const maxNumberValues = 8; //parseInt(selectMaxValues.value, 10);
+            this.UpdateMaxNumberValues();
             //réinitialise les tableaux qui contiennent les valeurs
             this.dates = [];
             this.values = [];
@@ -81,7 +92,7 @@ export default{
                     const label = `${newDate.getHours()}:${newDate.getMinutes()}`;
                     const newValue = element['Temperature'];
                     //selon la durée souhaitée
-                    if(this.dates.length < maxNumberValues){
+                    if(this.dates.length < this.maxNumberValues){
                         this.dates.push(label);
                         this.values.push(newValue);
                     }
@@ -97,6 +108,20 @@ export default{
             .catch(function(error) {
                 console.log(error);
             });
+        },
+        ResizeChart(){
+            if(window.outerWidth < 1000){
+                console.log("Format mobile");
+                this.chartWidth = 310;
+                this.chartHeight = 200;
+                this.FetchData();
+            }
+            else{
+                console.log("Format desktop");
+                this.chartWidth = 600;
+                this.chartHeight = 360;
+                this.FetchData();
+            }
         }
     }
 }
@@ -107,8 +132,6 @@ export default{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 900px;
-    height: 360px;
 }
 
 #temperature_chart #input_container{
@@ -144,5 +167,11 @@ export default{
 
 #temperature_chart #input_container #update_btn:hover{
     width: 250px;
+}
+
+@media (max-width: 700px) {
+    #temperature_chart{
+        flex-direction: column;
+    }
 }
 </style>
