@@ -4,7 +4,7 @@
         <ChartButton title="Humidité de l'air" @click="ChangeSelected('air_humidity')"></ChartButton>
         <ChartButton title="Humidité du sol" @click="ChangeSelected('ground_humidity')"></ChartButton>
         <ChartButton title="Luminosité" @click="ChangeSelected('brightness')"></ChartButton>
-        <ChartButton title="Batterie" @click="ChangeSelected('battery')"></ChartButton>
+        <!-- <ChartButton title="Batterie" @click="ChangeSelected('battery')"></ChartButton> -->
         <ChartButton title="Température de la batterie" @click="ChangeSelected('battery_temp')"></ChartButton>
     </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div id="temperature_chart">
+    <div id="air_humidity_chart">
         <highcharts v-if="dataFetched" :options="chartOptions"></highcharts>
         <div id="input_container">
             <select name="select_max_values" id="select_max_values" ref="input">
@@ -19,7 +19,7 @@
 import {Chart} from 'highcharts-vue'
 
 export default{
-    name: 'ChartContainer',
+    name: 'AirHumidityChart',
     components:{
         highcharts: Chart 
     },
@@ -49,14 +49,14 @@ export default{
                     height: this.chartHeight
                 },
                 title: {
-                    text: 'Température de la serre'
+                    text: "Humidité de l'air"
                 },
                 xAxis: {
                     categories: this.dates
                 },
                 yAxis: {
                     title: {
-                        text: 'Température en °C'
+                        text: 'Humidité en %'
                     }
                 },
                 legend: {
@@ -65,7 +65,8 @@ export default{
                     verticalAlign: 'bottom'
                 },
                 series: [{
-                    name: 'Température',
+                    name: 'Humidité',
+                    color: "#3F5F93",
                     data: this.values
                 }]
             }
@@ -90,7 +91,7 @@ export default{
                 data.forEach(element => {
                     const newDate = new Date(element['Date']);
                     const label = `${newDate.getHours()}:${newDate.getMinutes()}`;
-                    const newValue = element['Temperature'];
+                    const newValue = element['HumiditeAir'];
                     //selon la durée souhaitée
                     if(this.dates.length < this.maxNumberValues){
                         this.dates.push(label);
@@ -128,13 +129,13 @@ export default{
 </script>
 
 <style scoped>
-#temperature_chart{
+#air_humidity_chart{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-#temperature_chart #input_container{
+#air_humidity_chart #input_container{
     display: flex;
     width: 300px;
     flex-direction: column;
@@ -142,7 +143,7 @@ export default{
     align-items: center;
 }
 
-#temperature_chart #input_container #select_max_values{
+#air_humidity_chart #input_container #select_max_values{
     width: 200px;
     padding: 6px;
     border-radius: 8px;
@@ -151,7 +152,7 @@ export default{
     margin: 18px 0;
 }
 
-#temperature_chart #input_container #update_btn{
+#air_humidity_chart #input_container #update_btn{
     width: 220px;
     box-sizing: content-box;
     font-family: 'Merriweather', serif;
@@ -165,12 +166,12 @@ export default{
     transition: width 0.3s linear;
 }
 
-#temperature_chart #input_container #update_btn:hover{
+#air_humidity_chart #input_container #update_btn:hover{
     width: 250px;
 }
 
 @media (max-width: 700px) {
-    #temperature_chart{
+    #air_humidity_chart{
         flex-direction: column;
     }
 }
