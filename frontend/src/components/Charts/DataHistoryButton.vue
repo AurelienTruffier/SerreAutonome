@@ -1,32 +1,32 @@
 <template>
-    <div class="classic_button">
-        <button :style="{'width': width}" role="button">
-            {{ title }}
+    <div class="data_history_button">
+        <button role="button">
+            <router-link to="dataHistory">{{ title }}</router-link>
         </button>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ClassicButton',
+    name: 'DataHistoryButton',
+    data(){
+        return {
+            isHover: false
+        }
+    },
     props:{
         title:{
             type: String,
             required: true
-        },
-        link:{
-            type: String,
-            required: true
-        },
-        width: Number
+        }
     }
 }
 </script>
 
 <style scoped>
-    .classic_button button{
+    .data_history_button button{
         box-sizing: content-box;
-        width: 120px;
+        width: 180px;
         height: 25px;
         font-size: 0.95rem;
         font-family: 'Merriweather', serif;
@@ -34,19 +34,15 @@ export default {
         cursor: pointer;
         border: none;
         outline: none;
-        color: white;
         border-radius: 8px;
         padding: 8px;
         transition: width 0.3s linear;
     }
-    .classic_button button:hover{
-        width: 124px;
+    .data_history_button button a{
+        color: white;
+        text-decoration: none;
     }
-
-    /* RESPONSIVE */
-    @media (max-width: 920px) {
-        .classic_button button{
-            width: 115px;
-        }
+    .data_history_button button:hover {
+        width: 190px;
     }
 </style>

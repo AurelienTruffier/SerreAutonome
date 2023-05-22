@@ -40,11 +40,13 @@ export default {
 
 <style scoped>
   .home{
+      box-sizing: border-box;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 80%;
+      padding: 12px;
   }
 
   #main_container{

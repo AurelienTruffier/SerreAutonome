@@ -13,30 +13,30 @@
           <BrightnessChart v-if="this.selected=='brightness'"></BrightnessChart>
         </div>
       </div>
-      <ClassicButton title="Historique des données" link="#" width="180px"></ClassicButton>
+      <DataHistoryButton title="Historique des données"></DataHistoryButton>
     </ContainerBox>
   </div>
 </template>
 
 <script>
 import ContainerBox from '@/components/ContainerBox.vue';
-import ClassicButton from '@/components/ClassicButton.vue';
 import TemperatureChart from '@/components/Charts/TemperatureChart.vue';
 import AirHumidityChart from '@/components/Charts/AirHumidityChart.vue';
 import GroundHumidityChart from '@/components/Charts/GroundHumidityChart.vue';
 import BrightnessChart from '@/components/Charts/BrightnessChart.vue';
 import ChartButtonsContainer from '@/components/Charts/ChartButtonsContainer.vue';
+import DataHistoryButton from '@/components/Charts/DataHistoryButton.vue';
 
 export default{
     name: 'ChartsView',
     components: {
         ContainerBox,
-        ClassicButton,
         TemperatureChart,
         AirHumidityChart,
         GroundHumidityChart,
         BrightnessChart,
-        ChartButtonsContainer
+        ChartButtonsContainer,
+        DataHistoryButton
     },
     data(){
       return{
@@ -54,11 +54,13 @@ export default{
 
 <style scoped>
   .charts{
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 80%;
+    padding: 12px;
   }
 
   .charts #main_container{

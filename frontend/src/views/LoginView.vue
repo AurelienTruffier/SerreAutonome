@@ -25,11 +25,13 @@
   
   <style scoped>
     .login{
+        box-sizing: border-box;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
         height: 80%;
+        padding: 12px;
     }
     
     /* FORMULAIRE DE CONNEXION */

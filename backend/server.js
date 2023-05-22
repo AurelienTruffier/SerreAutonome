@@ -52,6 +52,20 @@ app.post('/connection', (req, res) => {
     });
 });
 
+//TEST pour le graphique
+app.get('/mesures', (req, res) => {
+    const sql= "SELECT Date, Temperature, HumiditeAir, HumiditeSol, Luminosite, NiveauEau FROM Mesure ORDER BY ID DESC";
+    connection.query(sql, (error, results) => {
+        if(error){
+            console.error('Erreur de requête SQL :', error);
+            res.status(500).end('Erreur serveur');
+        }
+        else{
+            res.end(JSON.stringify(results));
+        }
+    })
+});
+
 app.listen(3000, () => {
   console.log('Serveur démarré sur le port 3000');
 });

@@ -56,7 +56,7 @@ export default{
                 },
                 yAxis: {
                     title: {
-                        text: 'Unité à définir'
+                        text: 'Seuil'
                     }
                 },
                 legend: {

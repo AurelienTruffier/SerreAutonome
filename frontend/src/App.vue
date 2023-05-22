@@ -25,9 +25,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 #app {
   width: 100vw;
+  max-width: 100vw;
   height: auto;
   min-height: 100vh;
   background-image: url('assets/markus-spiske-bk11wZwb9F4-unsplash.jpg');
+  /* background-image: url('assets/shrek.jpeg'); */
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
