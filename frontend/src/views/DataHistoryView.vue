@@ -21,7 +21,7 @@
   import BrightnessTable from '@/components/DataHistory/BrightnessTable.vue';
   
   export default {
-    name: 'HomeView',
+    name: 'DataHistoryView',
     components: {
       ContainerBox,
       TemperatureTable,

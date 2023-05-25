@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import ChartsView from '../views/ChartsView.vue'
 import AboutView from '../views/AboutView'
+import DashboardView from '../views/DashboardView'
 import DataHistoryView from '../views/DataHistoryView'
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: AboutView
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: DashboardView
   },
   {
     path: '/charts',

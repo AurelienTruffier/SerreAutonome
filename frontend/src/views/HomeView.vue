@@ -7,7 +7,7 @@
           <img id="logo_serre" alt="Vue logo" src="../assets/logo.png">
         </div>
         <div id="button_container">
-          <HomeButton title="Tableau de bord 💻" link="#"></HomeButton>
+          <HomeButton title="Tableau de bord 💻" link="/dashboard"></HomeButton>
           <HomeButton title="Mes graphiques 📉" link="/charts"></HomeButton>
           <HomeButton title="Contrôler ma serre 🌱" link="#"></HomeButton>
           <HomeButton title="Configuration ⚙️" link="#"></HomeButton>

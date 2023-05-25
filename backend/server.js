@@ -66,6 +66,26 @@ app.get('/mesures', (req, res) => {
     })
 });
 
+//TEST pour les jauges du tableau de bord
+app.get('/lastMesure', (req, res) => {
+    const sql= "SELECT m.Date, m.Temperature, m.HumiditeAir, m.HumiditeSol, m.Luminosite, m.NiveauEau FROM Mesure m WHERE m.Date = (SELECT MAX(Date) FROM Mesure);";
+    connection.query(sql, (error, results) => {
+        if(error){
+            console.error('Erreur de requête SQL :', error);
+            res.status(500).end('Erreur serveur');
+        }
+        else{
+            res.end(JSON.stringify(results));
+        }
+    })
+});
+
+//TEST pour le niveau de batterie
+app.get('/battery', (req, res) => {
+    const battery = 92;
+    res.end(JSON.stringify(battery));
+})
+
 app.listen(3000, () => {
   console.log('Serveur démarré sur le port 3000');
 });
