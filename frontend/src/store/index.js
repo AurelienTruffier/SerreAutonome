@@ -4,8 +4,8 @@ import router from '@/router'
 
 export default createStore({
   state: {
-    userIsConnected: true,
-    username: null
+    userIsConnected: false,
+    username: "Anonymous"
   },
   getters: {
   },
