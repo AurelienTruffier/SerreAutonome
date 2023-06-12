@@ -173,7 +173,7 @@ function Send() {
         secure: false, // true pour les connexions SSL/TLS sécurisées
         auth: {
             user: 'serre_auto@truffieraurelien.ovh',
-            pass: 'btssnDunkerque'
+            pass: 'monMotDePasse'
         }
     });
 
